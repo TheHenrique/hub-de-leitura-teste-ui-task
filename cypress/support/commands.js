@@ -31,3 +31,12 @@ Cypress.Commands.add('login', (email, senha) => {
     cy.url().should('include', 'dashboard')
  })
 
+ Cypress.Commands.add('preencherCadastro', (nome, email, telefone, senha, confirmarSenha) =>{
+    cy.get('#name').type(nome)
+    cy.get('#email').type(email)
+    cy.get('#phone').type(telefone)
+    cy.get('#password').type(senha)
+    cy.get('#confirm-password').type(confirmarSenha)
+    cy.get('#terms-agreement').check()
+    cy.get('#register-btn').click()
+ })
